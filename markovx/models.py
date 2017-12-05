@@ -63,7 +63,7 @@ class MarkovModel(BaseMarkov):
             self._token_to_tokens_occurrences[p][q] += 1
         self._token_to_tokens_occurrences[q][self._chain_end] += 1
 
-    def generate(self, n, random_init=False, smart_ending=True):
+    def generate(self, n, random_init=False, smart_ending=False):
         res = list()
         current_token = random.choice(list(self._token_to_tokens_occurrences)) if random_init else self._chain_start
 
